@@ -201,7 +201,12 @@ void SSD1306_main(void)
 
 void user_task(void *pvParameter)
 {
-    SSD1306_main();
+    // SSD1306_main();
+
+	while(1)
+	{
+		vTaskDelay(1000 / portTICK_RATE_MS);
+	}
 //     // zero-initialize the config structure.
 //     gpio_config_t io_conf = {};
 //     // disable interrupt
