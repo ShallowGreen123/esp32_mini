@@ -8,6 +8,9 @@
 #include "freertos/task.h"
 #include "freertos/queue.h"
 #include "esp_log.h"
+
+// Peripherals
+#include "driver/uart.h"
 #include "driver/gpio.h"
 
 void user_task(void *pvParameter);

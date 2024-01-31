@@ -5,4 +5,4 @@
 
 # Add the C example.
 include(${CMAKE_CURRENT_LIST_DIR}/cexample/micropython.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/ssd1306/micropython.cmake)
+# include(${CMAKE_CURRENT_LIST_DIR}/ssd1306/micropython.cmake)

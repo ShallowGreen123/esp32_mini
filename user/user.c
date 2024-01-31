@@ -1,5 +1,5 @@
 #include "user.h"
-
+#include "uart.h"
 #include "ssd1306.h"
 #include "font8x8_basic.h"
 
@@ -202,6 +202,7 @@ void SSD1306_main(void)
 void user_task(void *pvParameter)
 {
     // SSD1306_main();
+	uart_init();
 
 	while(1)
 	{

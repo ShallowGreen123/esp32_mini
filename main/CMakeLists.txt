@@ -15,15 +15,6 @@ if(NOT CMAKE_BUILD_EARLY_EXPANSION)
     include(${MICROPY_DIR}/extmod/extmod.cmake)
 endif()
 
-# user add
-set(USER_SOURCE
-    ${PROJECT_DIR}/user/user.c
-)
-set(USER_INCLUDE
-    ${PROJECT_DIR}/user
-)
-# user end
-
 set(MICROPY_QSTRDEFS_PORT
     ${PROJECT_DIR}/qstrdefsport.h
 )
@@ -133,7 +124,6 @@ set(IDF_COMPONENTS
     ulp
     vfs
     xtensa
-    ssd1306   # user add
 )
 
 if(IDF_VERSION_MINOR GREATER_EQUAL 1 OR IDF_VERSION_MAJOR GREATER_EQUAL 5)
@@ -174,14 +164,12 @@ idf_component_register(
         ${MICROPY_SOURCE_DRIVERS}
         ${MICROPY_SOURCE_PORT}
         ${MICROPY_SOURCE_BOARD}
-        ${USER_SOURCE}
     INCLUDE_DIRS
         ${MICROPY_INC_CORE}
         ${MICROPY_INC_USERMOD}
         ${MICROPY_PORT_DIR}
         ${MICROPY_BOARD_DIR}
         ${CMAKE_BINARY_DIR}
-        ${USER_INCLUDE}
     REQUIRES
         ${IDF_COMPONENTS}
 )

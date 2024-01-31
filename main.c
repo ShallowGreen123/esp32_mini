@@ -67,8 +67,6 @@
 #include "extmod/modbluetooth.h"
 #endif
 
-#include "user.h"
-
 // MicroPython runs as a task under FreeRTOS
 #define MP_TASK_PRIORITY        (ESP_TASK_PRIO_MIN + 1)
 #define MP_TASK_STACK_SIZE      (16 * 1024)
@@ -241,9 +239,6 @@ void app_main(void) {
 
     // Create and transfer control to the MicroPython task.
     xTaskCreatePinnedToCore(mp_task, "mp_task", MP_TASK_STACK_SIZE / sizeof(StackType_t), NULL, MP_TASK_PRIORITY, &mp_main_task_handle, MP_TASK_COREID);
-
-    // add user task
-    xTaskCreatePinnedToCore(user_task, "user_task", 4096, NULL, MP_TASK_PRIORITY + 1, NULL, 0);
 }
 
 void nlr_jump_fail(void *val) {
