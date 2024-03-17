@@ -36,7 +36,7 @@ GIT_SUBMODULES += lib/berkeley-db-1.xx lib/micropython-lib
 
 CMAKE_ARGS =
 
-USER_C_MODULES = ../user/module/micropython.cmake
+USER_C_MODULES = ../src/module/micropython.cmake
 
 ifdef USER_C_MODULES
 	CMAKE_ARGS += -DUSER_C_MODULES=${USER_C_MODULES}

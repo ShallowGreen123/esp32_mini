@@ -2,6 +2,9 @@
     "files.associations": {
         "mphal.h": "c",
         "ssd1306.h": "c",
-        "uart.h": "c"
+        "uart.h": "c",
+        "dht.h": "c",
+        "machine_i2c.h": "c",
+        "mpthreadport.h": "c"
     }
 }

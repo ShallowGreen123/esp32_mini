@@ -16,7 +16,7 @@ if(NOT CMAKE_BUILD_EARLY_EXPANSION)
 endif()
 
 set(MICROPY_QSTRDEFS_PORT
-    ${PROJECT_DIR}/qstrdefsport.h
+    ${PROJECT_DIR}/src/mpy_adapter/qstrdefsport.h
 )
 
 set(MICROPY_SOURCE_SHARED
@@ -48,43 +48,43 @@ set(MICROPY_SOURCE_DRIVERS
 )
 
 set(MICROPY_SOURCE_PORT
-    ${PROJECT_DIR}/main.c
-    ${PROJECT_DIR}/uart.c
-    ${PROJECT_DIR}/usb.c
-    ${PROJECT_DIR}/usb_serial_jtag.c
-    ${PROJECT_DIR}/gccollect.c
-    ${PROJECT_DIR}/mphalport.c
-    ${PROJECT_DIR}/fatfs_port.c
-    ${PROJECT_DIR}/help.c
-    ${PROJECT_DIR}/modutime.c
-    ${PROJECT_DIR}/machine_bitstream.c
-    ${PROJECT_DIR}/machine_timer.c
-    ${PROJECT_DIR}/machine_pin.c
-    ${PROJECT_DIR}/machine_touchpad.c
-    ${PROJECT_DIR}/machine_adc.c
-    ${PROJECT_DIR}/machine_adcblock.c
-    ${PROJECT_DIR}/machine_dac.c
-    ${PROJECT_DIR}/machine_i2c.c
-    ${PROJECT_DIR}/machine_i2s.c
-    ${PROJECT_DIR}/machine_uart.c
-    ${PROJECT_DIR}/modmachine.c
-    ${PROJECT_DIR}/network_common.c
-    ${PROJECT_DIR}/network_lan.c
-    ${PROJECT_DIR}/network_ppp.c
-    ${PROJECT_DIR}/network_wlan.c
-    ${PROJECT_DIR}/mpnimbleport.c
-    ${PROJECT_DIR}/modsocket.c
-    ${PROJECT_DIR}/modesp.c
-    ${PROJECT_DIR}/esp32_nvs.c
-    ${PROJECT_DIR}/esp32_partition.c
-    ${PROJECT_DIR}/esp32_rmt.c
-    ${PROJECT_DIR}/esp32_ulp.c
-    ${PROJECT_DIR}/modesp32.c
-    ${PROJECT_DIR}/machine_hw_spi.c
-    ${PROJECT_DIR}/machine_wdt.c
-    ${PROJECT_DIR}/mpthreadport.c
-    ${PROJECT_DIR}/machine_rtc.c
-    ${PROJECT_DIR}/machine_sdcard.c
+    ${PROJECT_DIR}/src/main.c
+    ${PROJECT_DIR}/src/mpy_adapter/uart.c
+    ${PROJECT_DIR}/src/mpy_adapter/usb.c
+    ${PROJECT_DIR}/src/mpy_adapter/usb_serial_jtag.c
+    ${PROJECT_DIR}/src/mpy_adapter/gccollect.c
+    ${PROJECT_DIR}/src/mpy_adapter/mphalport.c
+    ${PROJECT_DIR}/src/mpy_adapter/fatfs_port.c
+    ${PROJECT_DIR}/src/mpy_adapter/help.c
+    ${PROJECT_DIR}/src/mpy_adapter/modutime.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_bitstream.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_timer.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_pin.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_touchpad.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_adc.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_adcblock.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_dac.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_i2c.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_i2s.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_uart.c
+    ${PROJECT_DIR}/src/mpy_adapter/modmachine.c
+    ${PROJECT_DIR}/src/mpy_adapter/network_common.c
+    ${PROJECT_DIR}/src/mpy_adapter/network_lan.c
+    ${PROJECT_DIR}/src/mpy_adapter/network_ppp.c
+    ${PROJECT_DIR}/src/mpy_adapter/network_wlan.c
+    ${PROJECT_DIR}/src/mpy_adapter/mpnimbleport.c
+    ${PROJECT_DIR}/src/mpy_adapter/modsocket.c
+    ${PROJECT_DIR}/src/mpy_adapter/modesp.c
+    ${PROJECT_DIR}/src/mpy_adapter/esp32_nvs.c
+    ${PROJECT_DIR}/src/mpy_adapter/esp32_partition.c
+    ${PROJECT_DIR}/src/mpy_adapter/esp32_rmt.c
+    ${PROJECT_DIR}/src/mpy_adapter/esp32_ulp.c
+    ${PROJECT_DIR}/src/mpy_adapter/modesp32.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_hw_spi.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_wdt.c
+    ${PROJECT_DIR}/src/mpy_adapter/mpthreadport.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_rtc.c
+    ${PROJECT_DIR}/src/mpy_adapter/machine_sdcard.c
 )
 
 set(MICROPY_SOURCE_QSTR
@@ -168,8 +168,13 @@ idf_component_register(
         ${MICROPY_INC_CORE}
         ${MICROPY_INC_USERMOD}
         ${MICROPY_PORT_DIR}
+        ${MICROPY_PORT_DIR}/src/mpy_adapter
         ${MICROPY_BOARD_DIR}
         ${CMAKE_BINARY_DIR}
+
+        ${MICROPY_DIR}/py
+        ${PROJECT_DIR}
+        ${PROJECT_DIR}/components
     REQUIRES
         ${IDF_COMPONENTS}
 )
